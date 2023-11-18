@@ -1,9 +1,11 @@
 const amqp = require('amqplib/callback_api');
 const sendEmail = require('../service');
+require('dotenv').config();
+let ip_addr = process.env.IP;
 
 const operation = () => {
 
-    amqp.connect('amqp://172.16.131.218', function(err, connection) {
+    amqp.connect(`amqp://${ip_addr}`, function(err, connection) {
     if (err) {
         throw err;
     }

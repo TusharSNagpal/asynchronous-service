@@ -18,6 +18,8 @@ services:
     image: tusharsnagpal/email-service
     healthcheck:
       test: ["CMD","ls"]
+    environment:
+      IP: rabbitmq
     networks:
         - rabbitmq_go_net
     ports:
@@ -30,6 +32,8 @@ services:
     image: tusharsnagpal/email-service
     healthcheck:
       test: ["CMD","ls"]
+    environment:
+      IP: rabbitmq
     networks:
         - rabbitmq_go_net
     ports:
@@ -40,6 +44,8 @@ services:
         
   backend-service:
     image: tusharsnagpal/backend-service
+    environment:
+      IP: rabbitmq
     networks:
         - rabbitmq_go_net
     ports:

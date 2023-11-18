@@ -1,7 +1,9 @@
 var amqp = require('amqplib/callback_api');
+require('dotenv').config();
+let ip_addr = process.env.IP;
 
 const pushInQueue = (queue, msg) => {
-    amqp.connect('amqp://172.16.131.218', function(error0, connection) {
+    amqp.connect(`amqp://${ip_addr}`, function(error0, connection) {
     if (error0) {
         throw error0;
     }

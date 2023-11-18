@@ -4,7 +4,7 @@ const Order = require('../models/orders');
 const Customer = require('../models/customer');
 const Item = require('../models/items');
 
-const pushInQueue = require('../service');
+const pushInQueue = require('../rabbitMQ/send');
 
 const placeOrder = asyncHandler(async (req,res) => {
     const {itemId, custId} = req.body

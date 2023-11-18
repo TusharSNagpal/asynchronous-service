@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const Customer = require('../models/customer');
-const pushInQueue = require('../service');
+const pushInQueue = require('../rabbitMQ/send');
 const bcrypt = require('bcryptjs');
 
 const registerCustomer = asyncHandler(async(req, res) => {
