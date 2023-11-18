@@ -1,3 +1,4 @@
+**Making Services Asynchronous using RabbitMQ:**<br /><br />
 Tasks which can be done in asynchronous mode and doesn't require client to wait until its done are asynchronous tasks. This we can achieve using Message Queues and a service provider for the same is RabbitMQ.<br />
 Apart from providing aynchronous functionality, if we have various workers running then RabbitMQ also does Load Balancing by using **Round-Robin Technique.**<br /><br />
 While learning **High Level Design** from **Gaurav Sen's Youtube channel**. He mentioned how useful and powerful **Message Queue** is,<br />
