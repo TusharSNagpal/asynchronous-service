@@ -1,0 +1,57 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    healthcheck:
+      test: ["CMD","ls"]
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_go_net
+  
+  email-service1:
+    image: tusharsnagpal/email-service
+    healthcheck:
+      test: ["CMD","ls"]
+    networks:
+        - rabbitmq_go_net
+    ports:
+        - 8066:8066
+    depends_on:
+        rabbitmq:
+          condition: service_healthy
+  
+  email-service2:
+    image: tusharsnagpal/email-service
+    healthcheck:
+      test: ["CMD","ls"]
+    networks:
+        - rabbitmq_go_net
+    ports:
+        - 8067:8066
+    depends_on:
+        rabbitmq:
+          condition: service_healthy
+        
+  backend-service:
+    image: tusharsnagpal/backend-service
+    networks:
+        - rabbitmq_go_net
+    ports:
+        - 5000:5000
+    depends_on:
+        rabbitmq:
+          condition: service_healthy
+        email-service1:
+          condition: service_healthy
+        email-service2:
+          condition: service_healthy
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
