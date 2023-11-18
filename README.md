@@ -12,7 +12,7 @@ In this project we kept email-service as asynchronized mode: user's request will
 **DOCKER:**<br />
 To run this project one needs to clone this repository and do:<br /><br />
 create your own .env file in the directories backend-service and email-service.<br /><br /><br />
-In backend-service: Mention ATLAS_URL variable and assign its value to the link of MongoDB URL which enables you to connect.<br /><br />
+In backend-service: Mention ATLAS_URL variable and assign its value to the link of MongoDB URL which enables you to connect.<br />
 Also mention PORT variable and assign its value to the port you want your backend server to run. Take 5000 as PORT or change it in docker-compose.yml also accordingly.<br /><br /><br />
 In email-service: Mention USER and PASS variables and assign them values of your email account from which email will be sent.<br /><br /><br />
 Then, run COMMAND: <br />
