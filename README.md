@@ -8,3 +8,12 @@ After customer calls API for placing an order. They should not wait until the em
 For demo purpose I have taken a timer for 1 minute at the email-service:<br />
 In synchronized mode: if message queue is not used user will have to wait until this process is completed which is of 1 minute and then they will be able to do other tasks. (BLOCKED TIME)<br />
 In this project we kept email-service as asynchronized mode: user's request will be stored in message queue and they will be able to do other tasks which will enhance user experience. (NO BLOCKING TIME)<br /><br />
+
+**DOCKER:**<br />
+To run this project one needs to clone this repository and do:<br /><br />
+create your own .env file in the directories backend-service and email-service.
+In backend-service: Mention ATLAS_URL variable and assign its value to the link of MongoDB URL which enables you to connect.<br /><br />
+Also mention PORT variable and assign its value to the port you want your backend server to run. Take 5000 as PORT or change it in docker-compose.yml also accordingly.<br /><br /><br />
+In email-service: Mention USER and PASS variables and assign them values of your email account from which email will be sent.<br /><br /><br />
+Then, run COMMAND: <br />
+**docker-compose up**
