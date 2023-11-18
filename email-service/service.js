@@ -6,7 +6,6 @@ const user = process.env.USER;
 const pass = process.env.PASS;
 
 const sendEmail = (msgArray) => {
-
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -22,13 +21,16 @@ const sendEmail = (msgArray) => {
     text: `${msgArray[2]}`
   };
 
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+  setTimeout(function () {
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+      console.log('Timer Expired');
+    });
+  }, 60000);
 }
 
 module.exports = sendEmail;
