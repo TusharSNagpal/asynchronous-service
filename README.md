@@ -18,4 +18,5 @@ Also mention PORT variable and assign its value to the port you want your backen
 In email-service: Mention USER and PASS variables and assign them values of your email account from which email will be sent.<br /><br /><br />
 Then, run COMMAND: <br />
 **docker-compose up**
+
 ![Project](https://github.com/TusharSNagpal/asynchronous-service/assets/63884440/da73e7a6-757b-427b-907e-c73eea61ddae)
