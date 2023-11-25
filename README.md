@@ -6,6 +6,7 @@ I wanted to see the result of how this actually performs.<br /><br />
 Thought of implementing an email-service using nodemailer. Made a small module (customer registration and ordering items) just for invoking email service to check if its working in asynchronous mode or not and how well it is performing.<br /><br />
 After customer calls API for placing an order. They should not wait until the email is sent and the whole process is completed. This should be done in asynchronous mode. Meanwhile customer will be able to call other APIs of views products/items without waiting for response.<br /><br />
 For demo purpose I have taken a timer for 1 minute at the email-service:<br />
+
 In synchronized mode: if message queue is not used user will have to wait until this process is completed which is of 1 minute and then they will be able to do other tasks. (BLOCKED TIME)<br />
 In this project we kept email-service as asynchronized mode: user's request will be stored in message queue and they will be able to do other tasks which will enhance user experience. (NO BLOCKING TIME)<br /><br />
 
@@ -17,3 +18,4 @@ Also mention PORT variable and assign its value to the port you want your backen
 In email-service: Mention USER and PASS variables and assign them values of your email account from which email will be sent.<br /><br /><br />
 Then, run COMMAND: <br />
 **docker-compose up**
+![Project](https://github.com/TusharSNagpal/asynchronous-service/assets/63884440/da73e7a6-757b-427b-907e-c73eea61ddae)
